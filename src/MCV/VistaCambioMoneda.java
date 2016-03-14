@@ -1,13 +1,7 @@
 package MCV;
 
-import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.geom.Line2D;
-
 import javax.swing.JFrame;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 
 //1JFrame 6 VistaPaneles sobre un mismo JFrame
 
@@ -21,8 +15,6 @@ public class VistaCambioMoneda extends JFrame {
 	private VistaMonedaUS panelUS;
 	
 	public VistaCambioMoneda() {
-		Border lineBorder = new LineBorder(Color.BLACK, 1);
-		Border borderblue = new LineBorder(Color.BLACK, 2);
 		panelBelgFranc = new VistaMonedaBelgFranc();
 		panelDM = new VistaMonedaDM();
 		panelFranzFranc = new VistaMonedaFranzFranc();

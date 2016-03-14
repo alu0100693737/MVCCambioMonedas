@@ -1,29 +1,26 @@
 package MCV;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.text.DecimalFormat;
 
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
-import javax.xml.bind.ParseConversionEvent;
 
 public class VistaMonedaBelgFranc extends JPanel{
 	
-	private JLabel jlblresultado1;
-  private JLabel jlblentrada;
-  private JLabel jlblresultado2;
+	private JTextField jlblresultado1;
+  private JTextField jlblentrada;
+  private JTextField jlblresultado2;
   
 	public VistaMonedaBelgFranc() {
 		Border bordergray = new LineBorder(Color.DARK_GRAY, 1);
 		
-		JPanel p1 = new JPanel(new GridLayout(1, 3, 5, 5));
+		JPanel p1 = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 5));
 		JPanel p2 = new JPanel(new GridLayout(2, 2, 5, 5));
 		
 		JLabel jlbleuro = new JLabel("Euro");
@@ -35,17 +32,17 @@ public class VistaMonedaBelgFranc extends JPanel{
 		JLabel jlblBelgFranc1 = new JLabel("Belg.Franc");
 		jlblBelgFranc1.setForeground(Color.BLUE);
 		
-	  jlblresultado1 = new JLabel("resultado1");
-	  jlblentrada = new JLabel("entrada");
-	  jlblresultado2 = new JLabel("resultado2");
+	  jlblresultado1 = new JTextField("resultado1");
+	  jlblentrada = new JTextField("entrada");
+	  jlblresultado2 = new JTextField("resultado2");
 	  
 	  getResultado1().setBorder(bordergray);
 	  p1.add(jlbleurois);
 	  p1.add(getResultado1());
 	  p1.add(jlblBelgFranc1);
 	  
-	  jlblentrada.setBorder(bordergray);
-	  jlblresultado2.setBorder(bordergray);
+	  getEntrada().setBorder(bordergray);
+	  getResultado2().setBorder(bordergray);
 	  
 	  p2.add(jlbleuro);
 	  p2.add(jlblBelgFranc);
@@ -64,28 +61,28 @@ public class VistaMonedaBelgFranc extends JPanel{
 	  add(p2);
 	}
 	
-	JLabel getResultado1() {
+	JTextField getResultado1() {
 		return jlblresultado1;
 	}
 	
 	void setResultado1(double dato) {
-		jlblresultado1 = new JLabel(String.valueOf(dato));
+		jlblresultado1.setText(String.valueOf(dato));
 	}
 	
-	JLabel getResultado2() {
+	JTextField getResultado2() {
 		return jlblresultado2;
 	}
 	
 	void setResultado2(double dato) {
-		jlblresultado2 = new JLabel(String.valueOf(dato));
+		DecimalFormat df = new DecimalFormat("#.##");
+		jlblresultado2.setText(String.valueOf(df.format(dato)));
 	}
 	
-	JLabel getEntrada() {
+	JTextField getEntrada() {
 		return jlblentrada;
 	}
 	
 	void setEntrada(double dato) {
-		jlblentrada = new JLabel(String.valueOf(dato));
-	}
-	
+		jlblentrada.setText(String.valueOf(dato));
+	}	
 }

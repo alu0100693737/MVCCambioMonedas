@@ -1,6 +1,7 @@
 package MCV;
 
 final public class ModeloMonedaBelgFranc extends ModeloCambioMoneda {
+	
 	private final double BELGFRANC = 40.34;
 
 	public ModeloMonedaBelgFranc() { }
