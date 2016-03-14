@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-public class VistaMonedaDM extends JPanel {
+public class VistaMonedaDM extends MiJPanel {
 	
 	private JTextField jlblresultado1;
   private JTextField jlblentrada;
@@ -20,13 +20,6 @@ public class VistaMonedaDM extends JPanel {
 	public VistaMonedaDM() {
 		Border bordergray = new LineBorder(Color.DARK_GRAY, 1);
 		
-		JPanel p1 = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 5));
-		JPanel p2 = new JPanel(new GridLayout(2, 2, 5, 5));
-		
-		JLabel jlbleuro = new JLabel("Euro");
-		jlbleuro.setForeground(Color.BLUE);
-		JLabel jlbleurois = new JLabel("1 Euro is ");
-		jlbleurois.setForeground(Color.BLUE);
 		JLabel jlblDM = new JLabel("DM");
 		jlblDM.setForeground(Color.BLUE);
 		JLabel jlblDM1 = new JLabel("DM");
@@ -37,17 +30,17 @@ public class VistaMonedaDM extends JPanel {
 	  jlblresultado2 = new JTextField("resultado2");
 	  
 	  getResultado1().setBorder(bordergray);
-	  p1.add(jlbleurois);
-	  p1.add(getResultado1());
-	  p1.add(jlblDM1);
+	  getP1().add(getjlblEurosis());
+	  getP1().add(getResultado1());
+	  getP1().add(jlblDM1);
 
 	  getEntrada().setBorder(bordergray);
 	  getResultado2().setBorder(bordergray);
 	  
-	  p2.add(jlbleuro);
-	  p2.add(jlblDM);
-	  p2.add(getEntrada());
-	  p2.add(getResultado2());
+	  getP2().add(getjlblEuro());
+	  getP2().add(jlblDM);
+	  getP2().add(getEntrada());
+	  getP2().add(getResultado2());
 	  
 	  setBorder(javax.swing.BorderFactory.
 	      createTitledBorder(null, "DM", javax.swing.border.
@@ -55,8 +48,8 @@ public class VistaMonedaDM extends JPanel {
 	      TitledBorder.DEFAULT_POSITION, null, java.awt.Color.green));
 	  
 	  setLayout(new GridLayout(2, 1, 10, 10));
-	  add(p1);
-	  add(p2);
+	  add(getP1());
+	  add(getP2());
 	}
 	
 	JTextField getResultado1() {
