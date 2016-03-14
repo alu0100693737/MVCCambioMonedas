@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.text.DecimalFormat;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -12,9 +13,10 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
 public class VistaMonedaIrPfund extends MiJPanel {
-	private JTextField jlblresultado1;
+	private JLabel jlblresultado1;
   private JTextField jlblentrada;
   private JTextField jlblresultado2;
+  private JButton calcular;
   
   public VistaMonedaIrPfund() {
 		Border bordergray = new LineBorder(Color.DARK_GRAY, 1);
@@ -24,14 +26,18 @@ public class VistaMonedaIrPfund extends MiJPanel {
 		JLabel jlblIrPfund1 = new JLabel("Ir.Pfund");
 		jlblIrPfund.setForeground(Color.BLUE);
 		
-	  jlblresultado1 = new JTextField("resultado1");
+	  jlblresultado1 = new JLabel("resultado1");
 	  jlblentrada = new JTextField("entrada");
 	  jlblresultado2 = new JTextField("resultado2");
 	  
+	  calcular = new JButton("Calcular");
+		getbtnCalcular().addActionListener(new ControllerCambioMoneda.OyenteBotonIrPfund());
+
 	  getResultado1().setBorder(bordergray);
 	  getP1().add(getjlblEurosis());
 	  getP1().add(getResultado1());
-	  getP2().add(jlblIrPfund1);
+	  getP1().add(jlblIrPfund1);
+	  getP1().add(getbtnCalcular());
 
 	  getEntrada().setBorder(bordergray);
 	  getResultado2().setBorder(bordergray);
@@ -50,10 +56,18 @@ public class VistaMonedaIrPfund extends MiJPanel {
 	  add(getP2());
 	}
 	
-	JTextField getResultado1() {
+  JLabel getResultado1() {
 		return jlblresultado1;
 	}
 	
+  public double getDoubleEntrada() {
+		return Double.parseDouble(jlblentrada.getText());
+	}
+  
+  public JButton getbtnCalcular() {
+		return calcular;
+	}
+  
 	void setResultado1(double dato) {
 		getResultado1().setText(String.valueOf(dato));
 	}

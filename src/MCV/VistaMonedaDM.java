@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.text.DecimalFormat;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -13,9 +14,10 @@ import javax.swing.border.LineBorder;
 
 public class VistaMonedaDM extends MiJPanel {
 	
-	private JTextField jlblresultado1;
+	private JLabel jlblresultado1;
   private JTextField jlblentrada;
   private JTextField jlblresultado2;
+  private JButton calcular;
   
 	public VistaMonedaDM() {
 		Border bordergray = new LineBorder(Color.DARK_GRAY, 1);
@@ -25,14 +27,19 @@ public class VistaMonedaDM extends MiJPanel {
 		JLabel jlblDM1 = new JLabel("DM");
 		jlblDM1.setForeground(Color.BLUE);
 		
-	  jlblresultado1 = new JTextField("resultado1");
+	  jlblresultado1 = new JLabel("resultado1");
 	  jlblentrada = new JTextField("entrada");
 	  jlblresultado2 = new JTextField("resultado2");
+	  
+	  calcular = new JButton("Calcular");
+		getbtnCalcular().addActionListener(new ControllerCambioMoneda.OyenteBotonDM());
+
 	  
 	  getResultado1().setBorder(bordergray);
 	  getP1().add(getjlblEurosis());
 	  getP1().add(getResultado1());
 	  getP1().add(jlblDM1);
+	  getP1().add(getbtnCalcular());
 
 	  getEntrada().setBorder(bordergray);
 	  getResultado2().setBorder(bordergray);
@@ -52,8 +59,16 @@ public class VistaMonedaDM extends MiJPanel {
 	  add(getP2());
 	}
 	
-	JTextField getResultado1() {
+	JLabel getResultado1() {
 		return jlblresultado1;
+	}
+	
+	public JButton getbtnCalcular() {
+		return calcular;
+	}
+	
+	public double getDoubleEntrada() {
+		return Double.parseDouble(jlblentrada.getText());
 	}
 	
 	void setResultado1(double dato) {

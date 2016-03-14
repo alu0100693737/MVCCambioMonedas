@@ -1,19 +1,23 @@
 package MCV;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class ControllerCambioMoneda {
 
-	private ModeloMonedaBelgFranc monedaBelgFranc;
-	private ModeloMonedaFranzFranc monedaFranzFranc;
-	private ModeloMonedaDM monedaDM;
-	private ModeloMonedaIrPfund monedaIrPund;
-	private ModeloMonedaItalicLira monedaItalicLira;
-	private ModeloMonedaUS monedaUs;
+	private static ModeloMonedaBelgFranc monedaBelgFranc;
+	private static ModeloMonedaFranzFranc monedaFranzFranc;
+	private static ModeloMonedaDM monedaDM;
+	private static ModeloMonedaIrPfund monedaIrPund;
+	private static ModeloMonedaItalicLira monedaItalicLira;
+	private static ModeloMonedaUS monedaUs;
 
-	private VistaCambioMoneda vistaCambioMoneda;
+	private static VistaCambioMoneda vistaCambioMoneda;
 	
 	private double valorEntrada;
 
 	public ControllerCambioMoneda() {
+		//controller
 
 		setValorEntrada(0);
 		
@@ -55,36 +59,36 @@ public class ControllerCambioMoneda {
 		valorEntrada = valor;
 	}
 
-	public ModeloMonedaBelgFranc getMonedaBelgFranc() {
+	public static ModeloMonedaBelgFranc getMonedaBelgFranc() {
 		return monedaBelgFranc;
 	}
 
-	public ModeloMonedaFranzFranc getMonedaFranzFranc() {
+	public static ModeloMonedaFranzFranc getMonedaFranzFranc() {
 		return monedaFranzFranc;
 	}
 
-	public ModeloMonedaDM getMonedaDM() {
+	public static ModeloMonedaDM getMonedaDM() {
 		return monedaDM;
 	}
 
-	public ModeloMonedaIrPfund getMonedaIrPund() {
+	public static ModeloMonedaIrPfund getMonedaIrPund() {
 		return monedaIrPund;
 	}
 
-	public ModeloMonedaItalicLira getMonedaItalicLira() {
+	public static ModeloMonedaItalicLira getMonedaItalicLira() {
 		return monedaItalicLira;
 	}
 
-	public ModeloMonedaUS getMonedaUs() {
+	public static ModeloMonedaUS getMonedaUs() {
 		return monedaUs;
 	}
 
-	public VistaCambioMoneda getVistaCambioMoneda() {
+	public static VistaCambioMoneda getVistaCambioMoneda() {
 		return vistaCambioMoneda;
 	}
 	
-	//Actualizacion de la calculadora panel
-	public void updateView(double dato) {
+	//Actualizacion de la calculadora panel por argumento 
+	public void updateViewArgument(double dato) {
 		setValorEntrada(dato);
 		
 		//Entradas
@@ -119,5 +123,54 @@ public class ControllerCambioMoneda {
 		getVistaCambioMoneda().getPanelUS().setResultado2(
   			getMonedaUs().convertir(getValorEntrada()));
 
+	}
+	
+	/** Gestiona la pulsación de los botones de forma interactiva*/
+	public static class OyenteBotonBelg implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			getVistaCambioMoneda().getPanelBelgFranc().setResultado2(
+					getMonedaBelgFranc().convertir(getVistaCambioMoneda().
+							getPanelBelgFranc().getDoubleEntrada()));
+		}
+	}
+	
+	public static class OyenteBotonDM implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			getVistaCambioMoneda().getPanelDM().setResultado2(
+					getMonedaDM().convertir(getVistaCambioMoneda().
+							getPanelDM().getDoubleEntrada()));
+		}
+	}
+	
+	public static class OyenteBotonFranzFranc implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			getVistaCambioMoneda().getPanelFranzFranc().setResultado2(
+					getMonedaFranzFranc().convertir(getVistaCambioMoneda().
+							getPanelFranzFranc().getDoubleEntrada()));
+		}
+	}
+	
+	public static class OyenteBotonIrPfund implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			getVistaCambioMoneda().getPanelIrPfund().setResultado2(
+					getMonedaIrPund().convertir(getVistaCambioMoneda().
+							getPanelIrPfund().getDoubleEntrada()));
+		}
+	}
+	
+	public static class OyenteBotonItalicLira implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			getVistaCambioMoneda().getPanelItalicLira().setResultado2(
+					getMonedaItalicLira().convertir(getVistaCambioMoneda().
+							getPanelItalicLira().getDoubleEntrada()));
+		}
+	}
+	
+	public static class OyenteBotonUS implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			getVistaCambioMoneda().getPanelUS().setResultado2(
+					getMonedaUs().convertir(getVistaCambioMoneda().
+							getPanelUS().getDoubleEntrada()));
+		}
 	}
 }
