@@ -38,7 +38,7 @@ public class VistaMonedaBelgFranc extends MiJPanel{
 		getResultado1().setPreferredSize(new Dimension(35, 24));
 
 		calcular = new JButton("Calcular");
-		getbtnCalcular().setBackground(Color.red);
+		getbtnCalcular().setBackground(Color.pink);
 		getbtnCalcular().addActionListener(new ControllerCambioMoneda.OyenteBotonBelg());
 
 		getResultado1().setBorder(bordergray);
@@ -59,7 +59,7 @@ public class VistaMonedaBelgFranc extends MiJPanel{
 		setBorder(javax.swing.BorderFactory.
 				createTitledBorder(null, "Belg.Franc", javax.swing.border.
 						TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.
-						TitledBorder.DEFAULT_POSITION, null, java.awt.Color.red));
+						TitledBorder.DEFAULT_POSITION, null, java.awt.Color.pink));
 
 		setLayout(new GridLayout(2, 1, 10, 10));
 
