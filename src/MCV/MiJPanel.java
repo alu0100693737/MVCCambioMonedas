@@ -27,7 +27,6 @@ public class MiJPanel extends JPanel {
 		getjlblEuro().setForeground(Color.BLUE);
 		jlbleurois = new JLabel("1 Euro is ");
 		getjlblEurosis().setForeground(Color.BLUE);
-
 		setLayout(new GridLayout(2, 1, 10, 10));
 	}
 

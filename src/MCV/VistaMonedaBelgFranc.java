@@ -1,6 +1,7 @@
 package MCV;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -34,8 +35,10 @@ public class VistaMonedaBelgFranc extends MiJPanel{
 		jlblresultado1 = new JLabel("resultado1");
 		jlblentrada = new JTextField("entrada");
 		jlblresultado2 = new JTextField("resultado2");
+		getResultado1().setPreferredSize(new Dimension(35, 24));
 
 		calcular = new JButton("Calcular");
+		getbtnCalcular().setBackground(Color.red);
 		getbtnCalcular().addActionListener(new ControllerCambioMoneda.OyenteBotonBelg());
 
 		getResultado1().setBorder(bordergray);

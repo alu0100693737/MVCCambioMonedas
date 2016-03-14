@@ -1,6 +1,7 @@
 package MCV;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.text.DecimalFormat;
@@ -29,9 +30,11 @@ public class VistaMonedaDM extends MiJPanel {
 		
 	  jlblresultado1 = new JLabel("resultado1");
 	  jlblentrada = new JTextField("entrada");
+	  getResultado1().setPreferredSize(new Dimension(80, 24));
 	  jlblresultado2 = new JTextField("resultado2");
 	  
 	  calcular = new JButton("Calcular");
+	  getbtnCalcular().setBackground(Color.green);
 		getbtnCalcular().addActionListener(new ControllerCambioMoneda.OyenteBotonDM());
 
 	  

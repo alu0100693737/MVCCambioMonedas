@@ -1,5 +1,6 @@
 package MCV;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
 
@@ -28,6 +29,7 @@ public class VistaCambioMoneda extends JFrame {
 		add(getPanelIrPfund());
 		add(getPanelItalicLira());
 		add(getPanelUS());
+		
 	}
 	
 	VistaMonedaBelgFranc getPanelBelgFranc() {

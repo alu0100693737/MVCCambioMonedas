@@ -1,6 +1,7 @@
 package MCV;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.text.DecimalFormat;
 
@@ -29,6 +30,7 @@ public class VistaMonedaItalicLira extends MiJPanel {
 	  jlblresultado2 = new JTextField("resultado2");
 	  
 	  calcular = new JButton("Calcular");
+	  getbtnCalcular().setBackground(Color.magenta);
 		getbtnCalcular().addActionListener(new ControllerCambioMoneda.OyenteBotonItalicLira());
 
 	  getResultado1().setBorder(bordergray);
